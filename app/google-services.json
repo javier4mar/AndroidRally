@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1040219623450",
+    "firebase_url": "https://rally-app-easywaypop.firebaseio.com",
+    "project_id": "rally-app-easywaypop",
+    "storage_bucket": "rally-app-easywaypop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040219623450:android:46099ab3f6c24156",
+        "android_client_info": {
+          "package_name": "com.easywaypop.app.rally"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1040219623450-c18df69cjfda2lp7gkfrkt3vjtmm8gc2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn5n2tGiAL3a3xHhNznO1tIOuDGNHpsSs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

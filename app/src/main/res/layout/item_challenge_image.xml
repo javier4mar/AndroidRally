@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.easywaypop.app.rally.viewmodel.ItemChallengeViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rlContainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{viewModel::onItemClick}"
+        android:foreground="?attr/selectableItemBackground">
+
+        <com.easywaypop.app.rally.widget.SquareImageView
+            android:id="@+id/ivImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/bg_no_challenge_complete"
+            android:scaleType="centerCrop"
+            android:layout_margin="1.5dp"
+            tools:challengeImageUrl="@{viewModel.pictureChallenge}"/>
+    </RelativeLayout>
+</layout>

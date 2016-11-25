@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context="com.easywaypop.app.rally.view.MainActivity">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/coordinatorlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <com.easywaypop.app.rally.utility.DrawInsetsFrameLayout
+                android:id="@+id/fl_map"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true" />
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/appbarlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                android:background="@android:color/transparent"
+                app:behavior_scrolling_appbar_peek_height="@dimen/bottom_sheet_peek_height"
+                app:layout_behavior="@string/ScrollingAppBarLayoutBehavior"
+                app:elevation="0dp">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/bg_toolbar"
+                    app:contentInsetStartWithNavigation="0dp"
+                    app:layout_collapseMode="pin">
+
+                    <LinearLayout
+                        android:id="@+id/llContentToolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tvToolbarTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:textSize="20sp"
+                            android:textColor="@color/colorPrimaryText"
+                            android:fontFamily="sans-serif-light"/>
+
+                        <LinearLayout
+                            android:id="@+id/llTimeKcal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|center_vertical"
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvTime"
+                                android:textColor="@color/redReferences"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:paddingLeft="8dp"
+                                android:paddingRight="8dp"
+                                android:paddingTop="2dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-light"/>
+
+                            <TextView
+                                android:id="@+id/tvKal"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="4dp"
+                                android:visibility="gone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-light"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.Toolbar>
+            </android.support.design.widget.AppBarLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/anchor_point"
+                android:fitsSystemWindows="true"
+                android:background="@color/Black"
+                app:behavior_backdrop_peekHeight="@dimen/bottom_sheet_peek_height"
+                app:layout_behavior="@string/BackDropBottomSheetBehavior">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <me.relex.circleindicator.CircleIndicator
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="12dp"/>
+            </FrameLayout>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:fitsSystemWindows="true"
+                android:id="@+id/bottom_sheet"
+                app:layout_behavior="@string/BottomSheetBehaviorGoogleMapsLike"
+                app:behavior_peekHeight="@dimen/bottom_sheet_peek_height"
+                app:anchorPoint="@dimen/anchor_point">
+
+                <include
+                    android:id="@+id/included"
+                    layout="@layout/content_bottom_sheet"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"/>
+            </android.support.v4.widget.NestedScrollView>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:tint="@color/colorSecondaryText"
+                android:src="@mipmap/ic_my_location_24dp"
+                app:backgroundTint="@color/white"
+                app:elevation="8dp"
+                app:layout_anchorGravity="top|right|end"
+                app:layout_anchor="@+id/bottom_sheet"
+                app:layout_behavior="@string/ScrollAwareFABBehavior"/>
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/merged_appbarlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:theme="@style/AppTheme.AppBarOverlay"
+                android:tag="modal-appbar"
+                app:layout_behavior="@string/MergedAppBarLayoutBehavior"
+                app:behavior_merged_appbar_anchor_point="@dimen/anchor_point">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:id="@+id/background"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:background="@color/colorPrimary"
+                        android:layout_gravity="bottom"/>
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/expanded_toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:contentInsetStartWithNavigation="0dp"
+                        app:title="@string/key_binding_default_toolbar_name"
+                        app:popupTheme="@style/AppTheme.PopupOverlay" />
+                </FrameLayout>
+            </android.support.design.widget.AppBarLayout>
+        </android.support.design.widget.CoordinatorLayout>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/White"
+            app:theme="@style/NavigationDrawerStyle"
+            app:itemTextColor="@color/colorPrimaryText"
+            app:itemIconTint="@color/colorSecondaryText"
+            app:itemBackground="@drawable/selector_navigation_menu" />
+    </android.support.v4.widget.DrawerLayout>
+</layout>

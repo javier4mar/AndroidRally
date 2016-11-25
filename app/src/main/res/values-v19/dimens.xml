@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="fab_margin_bottom">100dp</dimen>
+    <dimen name="bottom_sheet_peek_height">68dp</dimen>
+</resources>

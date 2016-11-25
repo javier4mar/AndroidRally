@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Rally</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="yesterday_text">AYER</string>
+    <string name="text_hint_user">Usuario</string>
+    <string name="text_hint_password">Contraseña</string>
+    <string name="text_btn_login">Ingresar</string>
+    <string name="permissions_error_msg">Permisos requeridos no concedidos</string>
+    <string name="key_binding_default_toolbar_name">Modal-Toolbar-Title</string>
+    <string name="BackDropBottomSheetBehavior">com.easywaypop.app.rally.utility.BackdropBottomSheetBehavior</string>
+    <string name="BottomSheetBehaviorGoogleMapsLike">com.easywaypop.app.rally.utility.BottomSheetBehaviorGoogleMapsLike</string>
+    <string name="ScrollAwareFABBehavior">com.easywaypop.app.rally.utility.ScrollAwareFABBehavior</string>
+    <string name="MergedAppBarLayoutBehavior">com.easywaypop.app.rally.utility.MergedAppBarLayoutBehavior</string>
+    <string name="ScrollingAppBarLayoutBehavior">com.easywaypop.app.rally.utility.ScrollingAppBarLayoutBehavior</string>
+    <string name="menu_item_home">Mapa</string>
+    <string name="menu_item_won_tests">Pruebas Ganadas</string>
+    <string name="menu_item_score">Puntaje</string>
+    <string name="menu_item_exit">Salir</string>
+    <string name="need_gps_error_msg">Debe activar el GPS.</string>
+    <string name="photo_btn">Foto</string>
+    <string name="map_btn">Mapa</string>
+    <string name="video_btn">Video</string>
+    <string name="conection_error_msg">Se perdió la conexión con el servidor\n\nToca para volver a intentarlo</string>
+    <string name="edittext_filter_string">0123456789qwertzuiopasdfghjklyxcvbnmQWERTZUIOPASDFGHJKLYXCVBNM-</string>
+    <string name="login_error_msg">Usuario o contraseña incorrectos. Por favor verifique!</string>
+    <string name="user_required_mg">Por favor ingrese su nombre de usuario</string>
+    <string name="pwd_required_msg">Por favor ingrese su contraseña</string>
+    <string name="connection_general_error_msg">Error de conexión, por favor intente de nuevo</string>
+    <string name="no_connected_msg">No posee conexión a internet en estos momentos</string>
+    <string name="user_have_not_permissons_error_msg">El usuario no tiene permisos asociados</string>
+    <string name="unlink_txt">Desvincular</string>
+    <string name="btn_link">Vincular</string>
+    <string name="rally_game_txt">Rally Game</string>
+    <string name="comapany_txt">Compañía</string>
+    <string name="company_name_required_msg">Por favor ingrese el nombre de la compañía</string>
+    <string name="company_not_found_msg">Compañía no registrada</string>
+    <string name="confirmation_label">Confirmación</string>
+    <string name="unlink_confirmation_message">¿Está seguro que desea desvincularse de esta compañía?</string>
+    <string name="logout_confirmation_message">¿Está seguro que desea salir del juego?</string>
+    <string name="menu_item_start_game">Iniciar Juego</string>
+    <string name="menu_item_team">Equipos</string>
+    <string name="menu_item_bonus_challenge">Iniciar Prueba Extra</string>
+    <string name="start_game_txt">Iniciar</string>
+    <string name="play_game_txt">Jugar</string>
+    <string name="finish_time_text">00:00:00\"</string>
+    <string name="game_is_started_notification_msg">¡Se ha iniciado el juego!</string>
+    <string name="cant_see_challenge_error_msg">Para poder ver el reto, debe encontrarse a una distancia mínima de 20 metros.</string>
+    <string name="wins_format" formatted="false"><![CDATA[<b>%d Ganados /</b> Wins]]></string>
+    <string name="left_format" formatted="false"><![CDATA[<b>%d Faltantes /</b> Left]]></string>
+    <string name="menu_item_help">Llamar a coordinador</string>
+    <string name="notify_btn_txt">Notificar</string>
+    <string name="congratulations_msg" formatted="false"><![CDATA[Se ha finalizado el juego, el ganador es:<br><br><b>%s</b><br><br><i>¡Felicidades!</i>]]></string>
+    <string name="time_off_finish_game_msg"><![CDATA[Se ha finalizado el tiempo disponible para completar el juego.<br><br><i>Gracias por su participación</i>]]></string>
+    <string name="help_notification_msg" formatted="false">El participante %s %s, del equipo %s, solicita su ayuda.</string>
+    <string name="finish_help_confirmation_msg" formatted="false"><![CDATA[¿Confirma que ha brindado la ayuda solicitada por el participante <b>%s %s</b>, del equipo <b>%s</b>?]]></string>
+    <string name="call_admin_confirmation_msg">¿Está seguro que desea llamar al coordinador?</string>
+    <string name="set_winner_confirmation_msg" formatted="false"><![CDATA[¿Está seguro que desea declarar al equipo <b>%s</b>, como ganador del juego?]]></string>
+    <string name="moderator_call_created_msg">Se ha realizado la llamada al coordinador, en unos minutos llegará a su ubicación, por favor espere.</string>
+    <string name="need_take_picture_to_challenge_msg">Para completar el reto debe subir una foto</string>
+    <string name="upload_image_failure_msg">Error a la hora de subir la imagen, por favor intente de nuevo.</string>
+    <string name="upload_in_progress_msg">Subida en progreso</string>
+    <string name="upload_complete_msg">Imagen subida correctamente</string>
+    <string name="accept_challenge_msg"><![CDATA[<b>Listo vamos a ver que tenemos que hacer aquí.</b> | Ready, go!<br><br>]]></string>
+    <string name="init_upload_image_progress_msg">Se inicia el proceso de subida de la imagen, cuando el mismo termine se registrará el reto como completado</string>
+    <string name="cannot_see_challenge_msg">No puede ver el reto hasta que este se encuentre completado</string>
+    <string name="picture_title">Foto</string>
+    <string name="arrive_format" formatted="false"><![CDATA[<b>%s Llegada /</b> Arrive]]></string>
+    <string name="finished_format" formatted="false"><![CDATA[<b>%s Terminada /</b> Finished]]></string>
+    <string name="bonus_challenge_notification_msg">Se ha activado una prueba extra, la cual podrán encontrar en sus mapas.</string>
+    <string name="confirm_bonus_challenge_msg">¿Está seguro que desea activar la prueba extra?</string>
+    <string name="bonus_challenge_activated_successfully">Se ha activado la prueba extra correctamente</string>
+</resources>

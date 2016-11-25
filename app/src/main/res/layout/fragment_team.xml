@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.easywaypop.app.rally.viewmodel.TeamViewModel"/>
+    </data>
+
+    <android.support.v4.widget.NestedScrollView
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/White">
+
+            <ProgressBar
+                android:id="@+id/pbGeneral"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="34dp"
+                app:visibility="@{viewModel.progressVisibility}"/>
+
+            <TextView
+                android:id="@+id/tvRetry"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/conection_error_msg"
+                android:textColor="@color/colorSecondaryText"
+                android:onClick="@{viewModel::onClick}"
+                app:visibility="@{viewModel.infoMessageVisibility}"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvChallenges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1.5dp"
+                android:clipToPadding="false"
+                android:scrollbars="none"
+                app:visibility="@{viewModel.recyclerViewVisibility}"
+                tools:listitem="@layout/item_challenge_image"/>
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</layout>

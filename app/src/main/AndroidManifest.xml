@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.easywaypop.app.rally">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+
+    <application
+        android:name=".Rally"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/myAppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".view.SplashActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/myAppTheme"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/myAppTheme" />
+        <activity
+            android:name=".view.ChronometerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/myAppTheme" />
+        <activity
+            android:name=".view.TeamActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".view.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/myAppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.MainActivity" />
+        </activity>
+        <activity android:name=".view.ChallengeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/myAppTheme">
+        </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.easywaypop.app.rally.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <service
+            android:name=".service.UploadPhotoService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.easywaypop.app.rally.service.UploadPhotoService.SERVICE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.HelpRequestService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.easywaypop.app.rally.service.HelpRequestService.SERVICE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".service.ExtraChallengeService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.easywaypop.app.rally.service.ExtraChallengeService.SERVICE" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

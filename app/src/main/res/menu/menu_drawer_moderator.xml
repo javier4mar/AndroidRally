@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/grpMain"
+        android:checkableBehavior="single" >
+
+        <item
+            android:checkable="true"
+            android:checked="false"
+            android:id="@+id/action_home"
+            android:icon="@mipmap/ic_home_map_marker_black_24dp"
+            android:title="@string/menu_item_home" />
+
+        <item
+            android:checkable="true"
+            android:checked="false"
+            android:id="@+id/action_team"
+            android:icon="@mipmap/ic_account_multiple_black_24dp"
+            android:title="@string/menu_item_team" />
+
+        <item
+            android:checkable="true"
+            android:checked="false"
+            android:id="@+id/action_bonus_challenge"
+            android:icon="@mipmap/ic_seal_black_24dp"
+            android:title="@string/menu_item_bonus_challenge" />
+
+        <item
+            android:checkable="true"
+            android:checked="false"
+            android:id="@+id/action_logout"
+            android:icon="@mipmap/ic_exit_to_app_black_24dp"
+            android:title="@string/menu_item_exit" />
+    </group>
+</menu>
