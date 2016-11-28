@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -41,6 +42,7 @@ import com.easywaypop.app.rally.model.DoneChallenge;
 import com.easywaypop.app.rally.model.HelpMarker;
 import com.easywaypop.app.rally.model.Image;
 import com.easywaypop.app.rally.service.HelpRequestService;
+import com.easywaypop.app.rally.service.PedometerService;
 import com.easywaypop.app.rally.utility.ChallengeImagesPagerAdapter;
 import com.easywaypop.app.rally.viewmodel.MainViewModelContract;
 import com.easywaypop.app.rally.viewmodel.MapViewModel;
@@ -106,6 +108,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
             setHelpRequestMarker(helpMarker);
         }
     };
+
+
+
+
 
     @Override
     public void onAttach(Context context) {
@@ -562,4 +568,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleA
     public void setDoneChallengeList(List<DoneChallenge> doneChallengeList) {
         this.mDoneChallengeList = doneChallengeList;
     }
+
+
+
 }

@@ -7,10 +7,12 @@
             type="com.easywaypop.app.rally.viewmodel.MapViewModel"/>
     </data>
 
+
     <com.easywaypop.app.rally.utility.DrawInsetsFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:id="@+id/map"/>
+
 </layout>

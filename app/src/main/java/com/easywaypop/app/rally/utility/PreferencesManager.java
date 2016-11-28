@@ -44,6 +44,17 @@ public class PreferencesManager {
 
     private static final String KEY_EXTRA_CHALLENGES_WAS_NOTIFIED= "key_is_extra_was_notified";
 
+    private static final String KEY_PEDOMETER_COUNT= "key_pedometer_count";
+
+    private static final String KEY_DEVICE_HAS_PEDOMETER= "key_has_pedometer";
+
+    private static final String KEY_STEPS_IN_SENSOR_PEDOMETER= "key_steps_in_pedometer";
+
+    private static final String KEY_SYSTEM_STEPS_DEVICE= "key_system_step_in_pedometer";
+
+    private static final String KEY_KCAL_COUNT= "key_kcal_in_calculate";
+
+
     /**
      * Constructor
      * @param context current context
@@ -125,4 +136,62 @@ public class PreferencesManager {
         editor.remove(KEY_IS_EXTRA_CHALLENGE_ACTIVATED);
         editor.apply();
     }
+
+    public String getKeyPedometerCount(){
+        return pref.getString(KEY_PEDOMETER_COUNT,"0");
+    }
+
+    public void setKeyPedometerCount(String steps){
+
+        editor.putString(KEY_PEDOMETER_COUNT, steps);
+        editor.apply();
+    }
+
+
+
+
+
+    public void setHasPedometer(boolean hasPedometer) {
+        editor.putBoolean(KEY_DEVICE_HAS_PEDOMETER, hasPedometer);
+        editor.apply();
+    }
+
+    public boolean hasPedometer() {
+        return pref.getBoolean(KEY_DEVICE_HAS_PEDOMETER, false);
+    }
+
+
+
+
+
+    public void setStepsInSensor(float localSteps){
+        editor.putFloat(KEY_STEPS_IN_SENSOR_PEDOMETER, localSteps);
+        editor.apply();
+    }
+
+    public float getStepsInSensor() {
+        return pref.getFloat(KEY_STEPS_IN_SENSOR_PEDOMETER, 0);
+    }
+
+
+
+    public boolean getKeySystemSteps() {
+        return pref.getBoolean(KEY_SYSTEM_STEPS_DEVICE, false);
+    }
+
+    public void setKeySystemSteps(boolean stepsON) {
+        editor.putBoolean(KEY_SYSTEM_STEPS_DEVICE,stepsON);
+        editor.apply();
+    }
+
+
+    public void setKeyKcalCount(String kcal){
+        editor.putString(KEY_KCAL_COUNT, kcal);
+        editor.apply();
+    }
+
+    public String getKeyKcalCount() {
+        return pref.getString(KEY_KCAL_COUNT, "0");
+    }
+
 }

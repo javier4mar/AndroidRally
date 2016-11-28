@@ -25,19 +25,19 @@
             tools:ignore="UselessParent">
 
             <TextView
-                android:id="@+id/tvLogo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:text="@string/rally_game_txt"
-                android:textSize="36sp"
-                android:textColor="@color/colorPrimaryText"
-                android:textStyle="bold|italic"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="sans-serif-condensed"/>
+            android:id="@+id/tvLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:text="@string/rally_game_txt"
+            android:textSize="36sp"
+            android:textColor="@color/colorPrimaryText"
+            android:textStyle="bold|italic"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif-condensed"/>
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
@@ -84,6 +84,14 @@
                 android:textColor="@color/White"
                 android:onClick="@{viewModel::onClick}"
                 android:background="@drawable/selector_btn_login" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="@mipmap/ic_launcher"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
         </RelativeLayout>
     </LinearLayout>
 </layout>

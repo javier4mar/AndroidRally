@@ -71,26 +71,31 @@ public class CompanyViewModel implements ViewModel {
                 getActivity().mDatabase.child("games").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        hideProgress();
-                        mFragment.enableButtons();
-                        boolean isFound = false;
-                        Game game = null;
-                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                            game = postSnapshot.getValue(Game.class);
-                            if (game.getAlias().equalsIgnoreCase(mAlias) ||
-                                    game.getCompany().equalsIgnoreCase(mAlias) ||
-                                    game.getName().equalsIgnoreCase(mAlias)) {
-                                isFound = true;
-                                break;
+
+                        try {
+                            hideProgress();
+                            mFragment.enableButtons();
+                            boolean isFound = false;
+                            Game game = null;
+                            for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                                game = postSnapshot.getValue(Game.class);
+                                if (game.getAlias().equalsIgnoreCase(mAlias) ||
+                                        game.getCompany().equalsIgnoreCase(mAlias) ||
+                                        game.getName().equalsIgnoreCase(mAlias)) {
+                                    isFound = true;
+                                    break;
+                                }
                             }
-                        }
-                        mFragment.clearEditText();
-                        if (!isFound) {
-                            getActivity().showGeneralAlertDialog(mContext.getString(R.string.company_not_found_msg));
-                        } else {
-                            getActivity().mPreferencesManager.setLinked(true);
-                            getActivity().mPreferencesManager.setGameId(game.getGameid());
-                            getActivity().changeFragment(new LoginFragment(), 1);
+                            mFragment.clearEditText();
+                            if (!isFound) {
+                                getActivity().showGeneralAlertDialog(mContext.getString(R.string.company_not_found_msg));
+                            } else {
+                                getActivity().mPreferencesManager.setLinked(true);
+                                getActivity().mPreferencesManager.setGameId(game.getGameid());
+                                getActivity().changeFragment(new LoginFragment(), 1);
+                            }
+                        }catch (Exception e){
+
                         }
                     }
 

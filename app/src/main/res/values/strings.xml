@@ -70,4 +70,10 @@
     <string name="bonus_challenge_notification_msg">Se ha activado una prueba extra, la cual podrán encontrar en sus mapas.</string>
     <string name="confirm_bonus_challenge_msg">¿Está seguro que desea activar la prueba extra?</string>
     <string name="bonus_challenge_activated_successfully">Se ha activado la prueba extra correctamente</string>
+    <string name="you_counter_is" formatted="false"><![CDATA[Felicidades! <br> Haz realizado  %d pasos en este challenge! ]]></string>
+    <string name="your_device_dont_have_pedometer">Su dispositivo no presenta sensor de pasos</string>
+    <string name="steps_label">Pasos</string>
+    <string name="counter_step_no_available">No disponible</string>
+    <string name="calories_label">Kcal</string>
+    <string name="calculate_label"></string>
 </resources>

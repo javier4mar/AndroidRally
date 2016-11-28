@@ -2,7 +2,10 @@ package com.easywaypop.app.rally.view;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -10,10 +13,12 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBar;
@@ -23,11 +28,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.easywaypop.app.rally.R;
 import com.easywaypop.app.rally.Rally;
 import com.easywaypop.app.rally.databinding.ActivityMainBinding;
 import com.easywaypop.app.rally.model.Team;
+import com.easywaypop.app.rally.service.PedometerService;
 import com.easywaypop.app.rally.utility.BottomSheetBehaviorGoogleMapsLike;
 import com.easywaypop.app.rally.utility.MergedAppBarLayoutBehavior;
 import com.easywaypop.app.rally.viewmodel.MainViewModel;
@@ -44,6 +51,9 @@ import static com.easywaypop.app.rally.utility.BottomSheetBehaviorGoogleMapsLike
 
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+
+    public static final String GET_PEDOMETER_BROADCAST ="com.easywaypop.app.rally.getPedometerBroadCast" ;
+
     private static final long DRAWER_CLOSE_DELAY_MS = 300;
     private static final long ANIMATION_DURATION = 50;
     private static final String NAV_ITEM_ID = "navItemId";
@@ -57,15 +67,36 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     private boolean isExpand = false;
     private long mReminderTime = 0;
     private int mNavItemId;
+    private LocalBroadcastManager mLocalBroadcastManager;
+
+
+    private BroadcastReceiver mPedometerReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final Bundle mPedometer = intent.getParcelableExtra(PedometerService.
+                    PEDOMETER_ACTION);
+            if(mPedometer != null){
+                setStepAndKcl(mPedometer.getString(PedometerService.STEP_NUMBER),mPedometer.getString(PedometerService.KCAL_NUMBER));
+            }else{
+                setNoPedometerAvailable();
+                MainActivity.this.showToastMessage(getString(R.string.your_device_dont_have_pedometer));
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         mMainViewModel = new MainViewModel(this);
+        mLocalBroadcastManager = LocalBroadcastManager.getInstance(MainActivity.this);
+
         if (null == savedInstanceState) mNavItemId = R.id.action_home;
         else mNavItemId = savedInstanceState.getInt(NAV_ITEM_ID);
         initViews();
+        registerBroadcastReceiver();
+        initStepKcalCount();
+
     }
 
     @Override
@@ -77,6 +108,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             navigate(mNavItemId);
         }
     }
+
 
     private void setUpFragments() {
         MapFragment mapFragment = new MapFragment();
@@ -139,6 +171,31 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         });
     }
 
+
+    public void setStepAndKcl(String stepCounter , String kcal) {
+        //Show steps and kcal
+        //mBinding.tvKal.setText(String.valueOf(stepCounter) +" "+ getString(R.string.steps_label)+" / "+ kcal +" "+ getString(R.string.calories_label));
+
+       //Show only kcal
+        mBinding.tvKal.setText( kcal +" "+ getString(R.string.calories_label));
+
+    }
+
+
+    public void setNoPedometerAvailable() {
+        mBinding.tvKal.setText(getString(R.string.counter_step_no_available));
+
+    }
+
+    private void registerBroadcastReceiver(){
+        mLocalBroadcastManager.registerReceiver(mPedometerReceiver,
+                new IntentFilter(GET_PEDOMETER_BROADCAST));
+    }
+
+    private void unRegisterBroadcastReceiver(){
+        mLocalBroadcastManager.unregisterReceiver(mPedometerReceiver);
+    }
+
     public void initChronometer(long time) {
         mBinding.tvTime.setText(BaseActivity.formatChronometer(time));
         mCountDownTimer = new CountDownTimer(time, 1000) {
@@ -157,6 +214,12 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         };
         if (time > 0) mCountDownTimer.start();
     }
+
+        private  void initStepKcalCount(){
+
+            setStepAndKcl(mPreferencesManager.getKeyPedometerCount(),mPreferencesManager.getKeyKcalCount());
+
+        }
 
     private BottomSheetBehaviorGoogleMapsLike.BottomSheetCallback mBottomSheetCallback = new BottomSheetCallback() {
         @Override
@@ -373,6 +436,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             mCountDownTimer.cancel();
             mCountDownTimer = null;
         }
+        unRegisterBroadcastReceiver();
         mMainViewModel.destroy();
         super.onDestroy();
     }

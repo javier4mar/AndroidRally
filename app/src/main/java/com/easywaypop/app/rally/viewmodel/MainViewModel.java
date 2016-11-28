@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
+import android.view.View;
 
 import com.easywaypop.app.rally.R;
 import com.easywaypop.app.rally.Rally;
@@ -16,6 +18,7 @@ import com.easywaypop.app.rally.model.Team;
 import com.easywaypop.app.rally.service.ExtraChallengeService;
 import com.easywaypop.app.rally.service.GPSTracker;
 import com.easywaypop.app.rally.service.HelpRequestService;
+import com.easywaypop.app.rally.service.PedometerService;
 import com.easywaypop.app.rally.utility.CustomComparator;
 import com.easywaypop.app.rally.view.BaseActivity;
 import com.easywaypop.app.rally.view.MainActivity;
@@ -34,6 +37,7 @@ import java.util.List;
 
 public class MainViewModel implements MainViewModelContract.ViewModel, ValueEventListener {
 
+    private static final String TAG = MainViewModel.class.getSimpleName();
     private Context mContext;
     private List<ScoreboardItem> mScoreboardList;
     private GPSTracker mGps;
@@ -42,12 +46,28 @@ public class MainViewModel implements MainViewModelContract.ViewModel, ValueEven
         this.mContext = context;
         if (!getActivity().isAdmin()) startExtraChallengeService();
         else startHelpRequestService();
+
+        startPedometerService();
     }
 
     private void startHelpRequestService() {
         Intent intent = new Intent(HelpRequestService.SERVICE_ACTION);
         intent.setPackage(BaseActivity.PACKAGE_NAME);
         mContext.startService(intent);
+    }
+
+    private void startPedometerService() {
+        Log.e("ENTRE" ,"startPedometerService");
+        Intent intent = new Intent(PedometerService.SERVICE_PEDOMETER_ACTION);
+        intent.setPackage(BaseActivity.PACKAGE_NAME);
+        mContext.startService(intent);
+    }
+
+    private void stopPedometerService() {
+        Log.e("ENTRE" ,"stopPedometerService");
+        Intent intent = new Intent(PedometerService.SERVICE_PEDOMETER_ACTION);
+        intent.setPackage(BaseActivity.PACKAGE_NAME);
+        mContext.stopService(intent);
     }
 
     private void stopHelpRequestService() {
@@ -270,12 +290,14 @@ public class MainViewModel implements MainViewModelContract.ViewModel, ValueEven
                     public void onClick(DialogInterface dialogInterface, int i) {
                         getActivity().mPreferencesManager.setIsGameStarted(false);
                         getActivity().mPreferencesManager.setIsExtraChallengeActivated(false);
+                        stopPedometerService();
                         ActivityCompat.finishAffinity(getActivity());
                     }
                 });
     }
 
     private String getCongratulationsMsg() {
+
         return String.format(mContext.getString(R.string.congratulations_msg),
                 Rally.getInstance().getTeamWinner().getName());
     }
@@ -299,7 +321,10 @@ public class MainViewModel implements MainViewModelContract.ViewModel, ValueEven
         if (getActivity().isAdmin()) stopHelpRequestService();
         else stopExtraChallengeService();
         unRegisterGameListener();
+
         if (mGps != null) mGps.stopUsingGPS();
         mContext = null;
     }
+
+
 }

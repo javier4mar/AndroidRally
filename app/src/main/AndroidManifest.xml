@@ -110,6 +110,16 @@
                 <action android:name="com.easywaypop.app.rally.service.ExtraChallengeService.SERVICE" />
             </intent-filter>
         </service>
+
+        <service
+            android:name=".service.PedometerService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.easywaypop.app.rally.service.PedometerService.SERVICE" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>
