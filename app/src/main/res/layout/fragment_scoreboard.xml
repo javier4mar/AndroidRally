@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.easywaypop.app.rally.viewmodel.ScoreboardViewModel"/>
+            type="com.cbwmarketing.app.rally.viewmodel.ScoreboardViewModel"/>
     </data>
 
     <android.support.v4.widget.NestedScrollView

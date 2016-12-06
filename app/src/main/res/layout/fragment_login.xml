@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.easywaypop.app.rally.viewmodel.LoginViewModel"/>
+            type="com.cbwmarketing.app.rally.viewmodel.LoginViewModel"/>
     </data>
 
     <ScrollView
@@ -32,7 +32,7 @@
                 android:orientation="vertical"
                 tools:ignore="UselessParent">
 
-                <com.easywaypop.app.rally.widget.CustomImageView
+                <com.cbwmarketing.app.rally.widget.CustomImageView
                     android:id="@+id/ivLogo"
                     android:layout_width="wrap_content"
                     android:layout_height="120dp"

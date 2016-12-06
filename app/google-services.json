@@ -36,6 +36,37 @@
           "status": 2
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1040219623450:android:70783e7da084797b",
+        "android_client_info": {
+          "package_name": "com.cbwmarketing.app.rally"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1040219623450-c18df69cjfda2lp7gkfrkt3vjtmm8gc2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn5n2tGiAL3a3xHhNznO1tIOuDGNHpsSs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
     }
   ],
   "configuration_version": "1"

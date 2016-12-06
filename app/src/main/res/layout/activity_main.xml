@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="com.easywaypop.app.rally.view.MainActivity">
+        tools:context="com.cbwmarketing.app.rally.view.MainActivity">
 
         <android.support.design.widget.CoordinatorLayout
             android:id="@+id/coordinatorlayout"
@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true">
 
-            <com.easywaypop.app.rally.utility.DrawInsetsFrameLayout
+            <com.cbwmarketing.app.rally.utility.DrawInsetsFrameLayout
                 android:id="@+id/fl_map"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

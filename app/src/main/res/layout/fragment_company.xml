@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.easywaypop.app.rally.viewmodel.CompanyViewModel"/>
+            type="com.cbwmarketing.app.rally.viewmodel.CompanyViewModel"/>
     </data>
 
     <LinearLayout
@@ -56,7 +56,7 @@
                 android:textColorHint="@color/colorTextHint"
                 android:layout_below="@+id/pbLogin">
 
-                <com.easywaypop.app.rally.widget.ActionEditText
+                <com.cbwmarketing.app.rally.widget.ActionEditText
                     android:id="@+id/etAlias"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

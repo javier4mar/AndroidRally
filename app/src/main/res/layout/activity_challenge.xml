@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="com.easywaypop.app.rally.view.ChallengeActivity">
+        tools:context="com.cbwmarketing.app.rally.view.ChallengeActivity">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appbarlayout"

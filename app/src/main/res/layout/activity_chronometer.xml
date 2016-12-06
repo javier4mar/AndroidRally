@@ -6,13 +6,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.easywaypop.app.rally.viewmodel.ChronometerViewModel"/>
+            type="com.cbwmarketing.app.rally.viewmodel.ChronometerViewModel"/>
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.easywaypop.app.rally.view.ChronometerActivity">
+        tools:context="com.cbwmarketing.app.rally.view.ChronometerActivity">
 
         <ImageView
             android:id="@+id/ivSplash"

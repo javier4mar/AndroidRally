@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.easywaypop.app.rally">
+    package="com.cbwmarketing.app.rally">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -22,7 +22,7 @@
         android:required="false" />
 
     <application
-        android:name=".Rally"
+        android:name="com.cbwmarketing.app.rally.Rally"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -33,7 +33,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".view.SplashActivity"
+            android:name="com.cbwmarketing.app.rally.view.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
@@ -44,33 +44,33 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.LoginActivity"
+            android:name="com.cbwmarketing.app.rally.view.LoginActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/myAppTheme"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".view.MainActivity"
+            android:name="com.cbwmarketing.app.rally.view.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/myAppTheme" />
         <activity
-            android:name=".view.ChronometerActivity"
+            android:name="com.cbwmarketing.app.rally.view.ChronometerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:theme="@style/myAppTheme" />
         <activity
-            android:name=".view.TeamActivity"
+            android:name="com.cbwmarketing.app.rally.view.TeamActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".view.MainActivity"
+            android:parentActivityName="com.cbwmarketing.app.rally.view.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/myAppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".view.MainActivity" />
+                android:value="com.cbwmarketing.app.rally.view.MainActivity" />
         </activity>
-        <activity android:name=".view.ChallengeActivity"
+        <activity android:name="com.cbwmarketing.app.rally.view.ChallengeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/myAppTheme">
@@ -78,7 +78,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.easywaypop.app.rally.provider"
+            android:authorities="com.cbwmarketing.app.rally.provider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -87,36 +87,36 @@
         </provider>
 
         <service
-            android:name=".service.UploadPhotoService"
+            android:name="com.cbwmarketing.app.rally.service.UploadPhotoService"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.easywaypop.app.rally.service.UploadPhotoService.SERVICE" />
+                <action android:name="com.cbwmarketing.app.rally.service.UploadPhotoService.SERVICE" />
             </intent-filter>
         </service>
         <service
-            android:name=".service.HelpRequestService"
+            android:name="com.cbwmarketing.app.rally.service.HelpRequestService"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.easywaypop.app.rally.service.HelpRequestService.SERVICE" />
+                <action android:name="com.cbwmarketing.app.rally.service.HelpRequestService.SERVICE" />
             </intent-filter>
         </service>
         <service
-            android:name=".service.ExtraChallengeService"
+            android:name="com.cbwmarketing.app.rally.service.ExtraChallengeService"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.easywaypop.app.rally.service.ExtraChallengeService.SERVICE" />
+                <action android:name="com.cbwmarketing.app.rally.service.ExtraChallengeService.SERVICE" />
             </intent-filter>
         </service>
 
         <service
-            android:name=".service.PedometerService"
+            android:name="com.cbwmarketing.app.rally.service.PedometerService"
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.easywaypop.app.rally.service.PedometerService.SERVICE" />
+                <action android:name="com.cbwmarketing.app.rally.service.PedometerService.SERVICE" />
             </intent-filter>
         </service>
 

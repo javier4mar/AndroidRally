@@ -8,11 +8,11 @@
     <string name="text_btn_login">Ingresar</string>
     <string name="permissions_error_msg">Permisos requeridos no concedidos</string>
     <string name="key_binding_default_toolbar_name">Modal-Toolbar-Title</string>
-    <string name="BackDropBottomSheetBehavior">com.easywaypop.app.rally.utility.BackdropBottomSheetBehavior</string>
-    <string name="BottomSheetBehaviorGoogleMapsLike">com.easywaypop.app.rally.utility.BottomSheetBehaviorGoogleMapsLike</string>
-    <string name="ScrollAwareFABBehavior">com.easywaypop.app.rally.utility.ScrollAwareFABBehavior</string>
-    <string name="MergedAppBarLayoutBehavior">com.easywaypop.app.rally.utility.MergedAppBarLayoutBehavior</string>
-    <string name="ScrollingAppBarLayoutBehavior">com.easywaypop.app.rally.utility.ScrollingAppBarLayoutBehavior</string>
+    <string name="BackDropBottomSheetBehavior">com.cbwmarketing.app.rally.utility.BackdropBottomSheetBehavior</string>
+    <string name="BottomSheetBehaviorGoogleMapsLike">com.cbwmarketing.app.rally.utility.BottomSheetBehaviorGoogleMapsLike</string>
+    <string name="ScrollAwareFABBehavior">com.cbwmarketing.app.rally.utility.ScrollAwareFABBehavior</string>
+    <string name="MergedAppBarLayoutBehavior">com.cbwmarketing.app.rally.utility.MergedAppBarLayoutBehavior</string>
+    <string name="ScrollingAppBarLayoutBehavior">com.cbwmarketing.app.rally.utility.ScrollingAppBarLayoutBehavior</string>
     <string name="menu_item_home">Mapa</string>
     <string name="menu_item_won_tests">Pruebas Ganadas</string>
     <string name="menu_item_score">Puntaje</string>
