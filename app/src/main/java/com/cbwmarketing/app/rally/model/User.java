@@ -14,6 +14,8 @@ public class User implements Parcelable{
     private String name;
     private String rol;
     private long teamid;
+    private int calories;
+
 
     public String getFirebaseuid() {
         return firebaseuid;
@@ -63,6 +65,14 @@ public class User implements Parcelable{
         this.teamid = teamid;
     }
 
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
+    }
+
     public User(){}
 
     public User(Parcel in) {
@@ -73,6 +83,8 @@ public class User implements Parcelable{
         this.name = in.readString();
         this.rol = in.readString();
         this.teamid = in.readLong();
+        this.calories = in.readInt();
+
     }
 
     public int describeContents() {
@@ -87,6 +99,7 @@ public class User implements Parcelable{
         out.writeString(this.name);
         out.writeString(this.rol);
         out.writeLong(this.teamid);
+        out.writeInt(this.calories);
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {

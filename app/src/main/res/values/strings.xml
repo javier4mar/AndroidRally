@@ -47,6 +47,7 @@
     <string name="game_is_started_notification_msg">¡Se ha iniciado el juego!</string>
     <string name="cant_see_challenge_error_msg">Para poder ver el reto, debe encontrarse a una distancia mínima de 20 metros.</string>
     <string name="wins_format" formatted="false"><![CDATA[<b>%d Ganados /</b> Wins]]></string>
+    <string name="playerskcal_format" formatted="false"><![CDATA[<b>%d Jugadores /</b> Players  <b><br>%d KCal Prom </b>]]></string>
     <string name="left_format" formatted="false"><![CDATA[<b>%d Faltantes /</b> Left]]></string>
     <string name="menu_item_help">Llamar a coordinador</string>
     <string name="notify_btn_txt">Notificar</string>

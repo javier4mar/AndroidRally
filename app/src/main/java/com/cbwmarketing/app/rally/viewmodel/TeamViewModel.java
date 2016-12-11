@@ -8,6 +8,7 @@ import com.cbwmarketing.app.rally.model.Challenge;
 import com.cbwmarketing.app.rally.model.DoneChallenge;
 import com.cbwmarketing.app.rally.model.ScoreboardItem;
 import com.cbwmarketing.app.rally.model.Team;
+import com.cbwmarketing.app.rally.model.User;
 import com.cbwmarketing.app.rally.view.BaseActivity;
 import com.cbwmarketing.app.rally.view.TeamActivity;
 import com.cbwmarketing.app.rally.view.TeamFragment;

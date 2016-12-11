@@ -173,6 +173,7 @@ public class LoginViewModel implements ViewModel {
                     mFragment.clearFields(true);
                     final User user = dataSnapshot.child("users").child(userId).getValue(User.class);
                     if (user.getRol() != null) {
+                        getActivity().mPreferencesManager.setKeyUserFirebaseId(userId);
                         getActivity().mPreferencesManager.setUserRol(user.getRol());
                         getActivity().mPreferencesManager.setTeamId(user.getTeamid());
                         getActivity().launchActivity(getActivity(), ChronometerActivity.class, false);

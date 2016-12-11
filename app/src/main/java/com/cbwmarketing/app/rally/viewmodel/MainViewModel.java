@@ -221,8 +221,13 @@ public class MainViewModel implements MainViewModelContract.ViewModel, ValueEven
     }
 
     public void finishGameByTime() {
-        getActivity().mDatabase.child("games").child(String.valueOf(getActivity().
-                mPreferencesManager.getGameId())).child("status").setValue(BaseActivity.STATUS_FINISHED);
+        try{
+            getActivity().mDatabase.child("games").child(String.valueOf(getActivity().
+                    mPreferencesManager.getGameId())).child("status").setValue(BaseActivity.STATUS_FINISHED);
+        }catch (Exception e){
+
+        }
+
     }
 
     private void getWinnerByTimeOff() {

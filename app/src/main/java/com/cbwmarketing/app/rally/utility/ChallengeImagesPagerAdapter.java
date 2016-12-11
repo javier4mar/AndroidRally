@@ -20,7 +20,13 @@ public class ChallengeImagesPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return ChallengeImageFragment.newInstance(mImagesList.get(position).getUrl());
+        try{
+            return ChallengeImageFragment.newInstance(mImagesList.get(position).getUrl());
+
+        }catch (Exception c){
+            return null;
+
+        }
     }
 
     @Override

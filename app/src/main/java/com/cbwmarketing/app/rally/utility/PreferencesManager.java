@@ -52,6 +52,8 @@ public class PreferencesManager {
 
     private static final String KEY_KCAL_COUNT= "key_kcal_in_calculate";
 
+    private static final String KEY_USER_FIREBASE_ID= "key_firebase_id_user";
+
 
     /**
      * Constructor
@@ -70,6 +72,15 @@ public class PreferencesManager {
 
     public boolean isLinked() {
         return pref.getBoolean(KEY_IS_LINKED, false);
+    }
+
+    public void setKeyUserFirebaseId(String uidFirebase){
+        editor.putString(KEY_USER_FIREBASE_ID, uidFirebase);
+        editor.apply();
+    }
+
+    public String getFirebaseID(){
+        return pref.getString(KEY_USER_FIREBASE_ID, "");
     }
 
     public void setGameId(long gameId){

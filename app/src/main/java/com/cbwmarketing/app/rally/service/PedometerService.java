@@ -15,7 +15,10 @@ import android.util.Log;
 import com.cbwmarketing.app.rally.BuildConfig;
 import com.cbwmarketing.app.rally.R;
 import com.cbwmarketing.app.rally.utility.PreferencesManager;
+import com.cbwmarketing.app.rally.view.BaseActivity;
 import com.cbwmarketing.app.rally.view.MainActivity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by javierhernandez on 26/11/16.
@@ -33,6 +36,7 @@ public class PedometerService extends Service implements SensorEventListener {
     private PreferencesManager mPreferencesManager;
     private Context mContext;
     private SensorManager sensorManager;
+    private DatabaseReference mDatabase;
 
 
     public PedometerService() {
@@ -55,6 +59,8 @@ public class PedometerService extends Service implements SensorEventListener {
         if (BuildConfig.DEBUG) Log.i(TAG, "SensorListener onCreate");
         mContext = PedometerService.this;
         mPreferencesManager = new PreferencesManager(mContext);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         Log.e(TAG, "SensorListener onCreate");
     }
 
@@ -96,6 +102,7 @@ public class PedometerService extends Service implements SensorEventListener {
             Bundle inf = new Bundle();
             inf.putString(STEP_NUMBER, String.valueOf(finalStep));
             inf.putString(KCAL_NUMBER,String.valueOf(kcal));
+            saveFireBaseCaloriesUser(kcal);
             sendBroadCastPedometer(inf);
 
             saveValuesCounter(String.valueOf(finalStep),String.valueOf(kcal));
@@ -168,6 +175,13 @@ public class PedometerService extends Service implements SensorEventListener {
         mPreferencesManager.setKeySystemSteps(true);
         mPreferencesManager.setKeyPedometerCount(steps);
         mPreferencesManager.setKeyKcalCount(kcal);
+    }
+
+
+    private void saveFireBaseCaloriesUser(double calories){
+
+        mDatabase.child("users").child(mPreferencesManager.getFirebaseID()).child("calories").setValue(calories);
+
     }
 
 }

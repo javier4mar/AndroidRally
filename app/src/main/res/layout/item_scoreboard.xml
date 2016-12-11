@@ -30,12 +30,13 @@
             android:layout_height="0.5dp"
             android:layout_toRightOf="@+id/ivIcon"
             android:layout_toEndOf="@+id/ivIcon"
-            android:layout_below="@+id/ivIcon"
+            android:layout_below="@+id/rlContainerText"
             android:layout_marginRight="14dp"
             android:layout_marginEnd="14dp"
             style="@style/Divider"/>
 
         <RelativeLayout
+            android:id="@+id/rlContainerText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/ivIcon"
@@ -74,7 +75,20 @@
                 android:textSize="14sp"
                 android:text="@{viewModel.wins}"
                 android:textColor="@color/colorSecondaryText"
-                tools:text="Mundo"/>
+                tools:text="Mundo"
+                />
+
+            <TextView
+                android:id="@+id/tvSubtitleCalories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvSubtitle"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="14sp"
+                android:text="@{viewModel.caloriesprom}"
+                android:textColor="@color/colorSecondaryText"
+                tools:text="Calorias"/>
 
             <Button
                 android:id="@+id/btnNotify"
@@ -92,7 +106,8 @@
                 android:elevation="2dp"
                 android:visibility="gone"
                 android:background="@drawable/selector_btn_login"
-                app:visibility="@{viewModel.buttonVisibility}"/>
+                app:visibility="@{viewModel.buttonVisibility}"
+                />
         </RelativeLayout>
     </RelativeLayout>
 </layout>

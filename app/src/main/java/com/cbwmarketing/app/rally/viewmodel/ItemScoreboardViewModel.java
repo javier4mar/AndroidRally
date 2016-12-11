@@ -16,9 +16,13 @@ import android.widget.ImageView;
 import com.cbwmarketing.app.rally.R;
 import com.cbwmarketing.app.rally.Rally;
 import com.cbwmarketing.app.rally.model.ScoreboardItem;
+import com.cbwmarketing.app.rally.model.User;
 import com.cbwmarketing.app.rally.view.BaseActivity;
 import com.cbwmarketing.app.rally.view.TeamActivity;
 import com.cbwmarketing.app.rally.view.TeamFragment;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by Juan-Crawford on 12/11/2016.
@@ -74,6 +78,14 @@ public class ItemScoreboardViewModel extends BaseObservable {
         return mScoreboardItem.getTeam().getTeamimage();
     }
 
+
+    @Bindable
+    public Spanned getCaloriesprom() {
+        return BaseActivity.getMessage(
+                String.format(mContext.getString(R.string.playerskcal_format),
+                mScoreboardItem.getUserList().size(),getPromCalories()));
+    }
+
     @BindingAdapter("imageUrl")
     public static void setImageUrl(ImageView imageView, String url) {
         BaseActivity.loadImage(imageView.getContext(), url, imageView);
@@ -99,6 +111,19 @@ public class ItemScoreboardViewModel extends BaseObservable {
             return ContextCompat.getColor(mContext, R.color.greenArrow);
         else
             return ContextCompat.getColor(mContext, R.color.colorPrimaryText);
+    }
+
+
+    private int getPromCalories(){
+        try{
+            int sum = 0;
+            for ( User mUser: mScoreboardItem.getUserList())
+                sum = sum+mUser.getCalories();
+
+            return (sum/mScoreboardItem.getUserList().size());
+        }catch (Exception e){
+            return 0;
+        }
     }
 
     private void confirmSetWinner(){
@@ -141,4 +166,5 @@ public class ItemScoreboardViewModel extends BaseObservable {
         this.mPosition = position;
         notifyChange();
     }
+
 }

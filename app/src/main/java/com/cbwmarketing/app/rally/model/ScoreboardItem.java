@@ -14,6 +14,7 @@ public class ScoreboardItem implements Parcelable {
     private Team team;
     private List<Challenge> challengeList;
     private List<DoneChallenge> doneChallengeList;
+    private List<User> userChallengeList;
 
     public Team getTeam() {
         return team;
@@ -23,6 +24,8 @@ public class ScoreboardItem implements Parcelable {
         this.team = team;
         setChallengeList(new ArrayList<Challenge>());
         setDoneChallengeList(new ArrayList<DoneChallenge>());
+        setUserList(new ArrayList<User>());
+
     }
 
     public List<Challenge> getChallengeList() {
@@ -31,6 +34,14 @@ public class ScoreboardItem implements Parcelable {
 
     private void setChallengeList(List<Challenge> challengeList) {
         this.challengeList = challengeList;
+    }
+
+    public List<User> getUserList() {
+        return userChallengeList;
+    }
+
+    private void setUserList(List<User> mUserChallengeList) {
+        this.userChallengeList = mUserChallengeList;
     }
 
     public List<DoneChallenge> getDoneChallengeList() {
@@ -44,6 +55,8 @@ public class ScoreboardItem implements Parcelable {
     public ScoreboardItem() {
         this.challengeList = new ArrayList<>();
         this.doneChallengeList = new ArrayList<>();
+        this.userChallengeList = new ArrayList<>();
+
     }
 
     public ScoreboardItem(Parcel in) {
@@ -51,6 +64,8 @@ public class ScoreboardItem implements Parcelable {
         this.team = in.readParcelable(Team.class.getClassLoader());
         in.readList(this.challengeList, Challenge.class.getClassLoader());
         in.readList(this.doneChallengeList, DoneChallenge.class.getClassLoader());
+        in.readList(this.userChallengeList, User.class.getClassLoader());
+
     }
 
     public int describeContents() {
@@ -62,6 +77,8 @@ public class ScoreboardItem implements Parcelable {
         out.writeParcelable(this.team, flags);
         out.writeList(this.challengeList);
         out.writeList(this.doneChallengeList);
+        out.writeList(this.userChallengeList);
+
     }
 
     public static final Creator<ScoreboardItem> CREATOR = new Creator<ScoreboardItem>() {
